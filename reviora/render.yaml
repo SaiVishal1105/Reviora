@@ -1,0 +1,36 @@
+services:
+  # ─── Spring Boot API ─────────────────────────────────
+  - type: web
+    name: reviora-api
+    runtime: java
+    buildCommand: cd backend && mvn clean package -DskipTests
+    startCommand: java -jar backend/target/reviora-backend-1.0.0.jar
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: reviora-redis
+          property: connectionString
+      - key: PISTON_API_URL
+        value: https://emkc.org/api/v2/piston
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+
+  # ─── Redis ───────────────────────────────────────────
+  - type: redis
+    name: reviora-redis
+    plan: free
+    maxmemoryPolicy: allkeys-lru

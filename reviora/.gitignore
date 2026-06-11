@@ -1,0 +1,40 @@
+# ─── Node / Frontend ─────────────────────────
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.env.local
+.env.*.local
+
+# ─── Java / Maven ────────────────────────────
+target/
+*.class
+*.jar
+*.war
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ─── IDE ─────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# ─── OS ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Logs ────────────────────────────────────
+logs/
+*.log
+spring.log
+
+# ─── Test / Coverage ─────────────────────────
+coverage/
+.nyc_output/
+surefire-reports/
