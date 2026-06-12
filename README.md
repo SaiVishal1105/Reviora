@@ -1,4 +1,4 @@
-# Reviora — Intelligent DSA Analysis Platform
+# Reviora - Intelligent DSA Analysis Platform
 
 > Algorithm Engineering Operating System — not just a code runner.
 
